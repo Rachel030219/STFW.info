@@ -11,7 +11,6 @@ The repo of [stfw.info](https://stfw.info)
 - Project Dependenciess
   - gulp-htmlmin
   - gulp-htmlclean
-  - gulp-uncss
 
 ```bash
 npm install gulp -g

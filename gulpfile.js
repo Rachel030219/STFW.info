@@ -33,6 +33,5 @@ gulp.task('webserver', function () {
 });
 gulp.task('default', [
     'minify-html',
-    'uncss',
     'webserver'
 ]);
