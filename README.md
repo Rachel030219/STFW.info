@@ -26,7 +26,7 @@ Simply run in project root directory:
 gulp
 ```
 
-The html will automatically output in 'public/' and the minified css will automatically output in `public/css/msui.min.css`.
+The html will automatically output in `public/` and the minified css will automatically output in `public/css/msui.min.css`.
 The gulp webserver will listen on `http://localhost:8080`. The broswer will automatically open the html.
 
 ### Project Structure
