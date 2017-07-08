@@ -1,4 +1,8 @@
 {
+  "devDependencies": {
+    "gulp-uncss": "^1.0.6",
+    "gulp-webserver": "^0.9.1"
+  },
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-htmlclean": "^2.7.14",
