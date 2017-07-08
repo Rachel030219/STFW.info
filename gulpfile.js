@@ -14,24 +14,6 @@ gulp.task('minify-html', function () {
         .pipe(htmlclean())
         .pipe(gulp.dest('public'))
 });
-gulp.task('uncss', function () {
-    return gulp.src('./source/css/mdui.min.css')
-        .pipe(uncss({
-            html: ['public/index.html']
-        }))
-        .pipe(gulp.dest('public/css'));
-});
-gulp.task('webserver', function () {
-    gulp.src('./public/')
-        .pipe(webserver({
-            host: 'localhost',
-            livereload: false,
-            directoryListing: true,
-            open: '/index.html',
-            port: 8080
-        }));
-});
 gulp.task('default', [
-    'minify-html',
-    'webserver'
+    'minify-html'
 ]);
