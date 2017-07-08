@@ -2,6 +2,8 @@
 
 The repo of [stfw.info](https://stfw.info)
 
+![Building](https://travis-ci.org/Rachel030219/STFW.info.svg?branch=master)
+
 ## Development
 
 ### Requirement
