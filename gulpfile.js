@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var htmlmin = require('gulp-htmlmin');
 var htmlclean = require('gulp-htmlclean');
-var webserver = require('gulp-webserver');
-var uncss = require('gulp-uncss');
 gulp.task('minify-html', function () {
     return gulp.src('source/index.html')
         .pipe(htmlmin({
