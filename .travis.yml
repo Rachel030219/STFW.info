@@ -13,7 +13,7 @@ script:
   - git config --global user.name "${GitHubUser}"
   - git add --all .
   - git commit -m "Travis CI Auto Builder"
-  - git push --quiet --force https://${GitHubKEY}@github.com/${GitHubUser}/STFW.info.git build
+  - git push --quiet --force https://${GitHubUser}:${GitHubKEY}@github.com/${GitHubUser}/STFW.info.git build
 
 cache:
   directories:
