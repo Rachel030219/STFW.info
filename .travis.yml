@@ -12,7 +12,6 @@ script:
   - git config --global user.email "${GitHubEMail}"
   - git config --global user.name "${GitHubUser}"
   - git remote add origin https://${GitHubKEY}@github.com/${GitHubUser}/STFW.info.git
-  - git branch build
   - git add --all .
   - git commit -m "Travis CI Auto Builder"
   - git push --quiet --force --set-upstream origin build
