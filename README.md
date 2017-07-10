@@ -21,14 +21,20 @@ npm install
 
 ### Running
 
-Simply run in project root directory:
+Simply run in project root dictionary:
 
 ```
 gulp
 ```
 
-The html will automatically output in `public/` ~~and the minified css will automatically output in `public/css/msui.min.css`~~.
-~~The gulp webserver will listen on `http://localhost:8080`. The broswer will automatically open the html.~~
+The compressed html will automatically output in `public/` ~~and the minified css will automatically output in `public/css/msui.min.css`~~.
+The gulp webserver will listen on `http://localhost:8080`. The broswer will automatically open the html.
+
+```
+gulp build
+```
+
+The gulp will only compress the html and automatically output in `public/`.
 
 Started using remote css and js files, deleted automatic actions in order to integrate Travis CI.
 
@@ -46,7 +52,14 @@ Started using remote css and js files, deleted automatic actions in order to int
 | gulpfile.js    | Gulp tasks definition              |      |
 | package.json   | Package Information                |      |
 
-## Todo
+## Travis.CI
 
-- Using Travis.CI to make the building more easily.
+You should configure the Travis.CI with the ENV below:
 
+- `GitHubEMail`: Your E-Mail address for GitHub
+- `GitHubUser`: Your Username at GitHub
+- `GitHubKEY`: Personal access tokens for GitHub
+
+Those ENV will help Travis.CI configure the git and deploy the `public` dictionary's contents to your repo's `build` branch.
+
+> You should disable `Display value in build log` in Travis.CI console to avoid the leak of your token!
