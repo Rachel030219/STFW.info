@@ -35,6 +35,6 @@ gulp.task('default', [
     'minify-html',
     'webserver'
 ]);
-gulp.task('test', [
+gulp.task('build', [
     'minify-html'
 ]);
