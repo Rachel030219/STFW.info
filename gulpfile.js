@@ -35,3 +35,6 @@ gulp.task('default', [
     'minify-html',
     'webserver'
 ]);
+gulp.task('test', [
+    'minify-html'
+]);
