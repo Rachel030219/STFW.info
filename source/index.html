@@ -32,7 +32,7 @@
         input.addEventListener("keyup", function (event) {
             event.preventDefault();
             if (event.keyCode == 13) {
-                var searchValue = input.value.replace(/ /g, "+");
+                var searchValue = input.value.replace(/ /g, "+").replace(/\+/g, "%2B");
                 window.location = "https://google.com/search?q=" + searchValue;
             }
         });
