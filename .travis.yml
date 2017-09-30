@@ -4,7 +4,6 @@ node_js:
 
 branches:
   except:
-  - build
   - gh-pages
 
 before_script:
