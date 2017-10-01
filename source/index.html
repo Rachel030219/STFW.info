@@ -19,52 +19,23 @@
 </head>
 
 <body>
-    <div class="mdui-container mdui-valign mdui-row" style="height: 100vh">
-        <div class="mdui-textfield mdui-textfield-floating-label mdui-center mdui-col-sm-8 mdui-col-xs-8 mdui-col-md-6">
+    <div class="mdui-container mdui-valign" style="height: 100vh">
+        <div class="mdui-textfield mdui-textfield-floating-label mdui-center mdui-col-sm-6 mdui-col-xs-12 mdui-col-md-4">
             <i class="mdui-icon material-icons">&#xe8b6;</i>
-            <label class="mdui-textfield-label mdui-text-truncate">What are you looking for?</label>
+            <label class="mdui-textfield-label">What are you looking for?</label>
             <input class="mdui-textfield-input" id="search-input"></input>
         </div>
-        <button class="mdui-center mdui-btn mdui-btn-raised mdui-ripple" id="anotherengine-button" onclick="onAnotherEngineClick()"></button>
     </div>
     <script src="https://cdn.bootcss.com/mdui/0.2.1/js/mdui.min.js"></script>
     <script type="text/javascript">
         var input = document.getElementById("search-input");
-        var anotherBtn = document.getElementById("anotherengine-button");
-        var xmlrequest = new XMLHttpRequest();
-        var searchUrl = "https://google.com/search?q=";
-        xmlrequest.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                locationObj = JSON.parse(this.responseText);
-                if (locationObj.country_name.search("China") != -1) {
-                    searchUrl = "https://cn.bing.com/search?q=";
-                    anotherBtn.innerHTML = "Google";
-                } else {
-                    searchUrl = "https://google.com/search?q=";
-                    anotherBtn.innerHTML = "Bing";
-                }
-            }
-        };
-        xmlrequest.open("GET", "https://freegeoip.net/json/", true);
-        xmlrequest.send();
         input.addEventListener("keyup", function (event) {
             event.preventDefault();
             if (event.keyCode == 13) {
                 var searchValue = input.value.replace(/ /g, "+").replace(/\+/g, "%2B");
-                window.location = searchUrl + searchValue;
+                window.location = "https://google.com/search?q=" + searchValue;
             }
         });
-        function onAnotherEngineClick() {
-            if (searchUrl.search("google") != -1) {
-                searchUrl = "https://cn.bing.com/search?q=";
-                var searchValue = input.value.replace(/ /g, "+").replace(/\+/g, "%2B");
-                window.location = searchUrl + searchValue;
-            } else {
-                searchUrl = "https://google.com/search?q=";
-                var searchValue = input.value.replace(/ /g, "+").replace(/\+/g, "%2B");
-                window.location = searchUrl + searchValue;
-            }
-        }
     </script>
 </body>
 
