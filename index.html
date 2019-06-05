@@ -30,7 +30,7 @@
             var url = "https://google.com/search?q="
             window.onload = function () {
                 var label = document.getElementById("search-label");
-                fetch ("http://api.ipapi.com/check?access_key=31dba108f5787fb26c229be5614d7825")
+                fetch ("https://api.db-ip.com/v2/free/self")
                     .then (function (response) {
                         console.log (response.status);
                         if (response.ok)
