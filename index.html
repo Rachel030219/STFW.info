@@ -32,13 +32,11 @@
                 var label = document.getElementById("search-label");
                 fetch ("https://api.db-ip.com/v2/free/self")
                     .then (function (response) {
-                        console.log (response.status);
                         if (response.ok)
                             return response.json();
                     })
                     .then (function (json) {
-                        console.log (json);
-                        if (json.country_code == "CN") {
+                        if (json.countryCode == "CN") {
                             url = "https://cn.bing.com/search?q=";
                             label.textContent = "Search Bing for…";
                         }
