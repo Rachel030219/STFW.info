@@ -13,8 +13,8 @@
         <link rel="preconnect" href="https://www.google.com">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="480">
-        <link href="https://cdn.bootcss.com/mdui/0.4.2/css/mdui.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.2/css/mdui.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.2/css/mdui.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.2/js/mdui.min.js"></script>
     </head>
 
     <body>
@@ -39,6 +39,23 @@
                         if (json.countryCode == "CN") {
                             url = "https://cn.bing.com/search?q=";
                             label.textContent = "Search Bing for…";
+                            mdui.snackbar({
+                                message: '已经切换到 Bing',
+                                buttonText: '使用 Google',
+                                onButtonClick: function(){
+                                    var url = "https://google.com/search?q="
+                                    label.textContent = "Search Google for…";
+                                }
+                            });
+                        } else {
+                            mdui.snackbar({
+                                message: '已经切换到 Google',
+                                buttonText: '使用 Bing',
+                                onButtonClick: function(){
+                                    var url = "https://cn.bing.com/search?q="
+                                    label.textContent = "Search Bing for…";
+                                }
+                            });
                         }
                     });
             };
