@@ -40,9 +40,9 @@
             var outputButton = document.getElementById("output-copy")
             inputElement.oninput = function(){
                 if (inputElement.value.length > 0) {
-                    let judgementString = inputElement.value.substring(0,2).toUpperCase()
+                    var judgementString = inputElement.value.substring(0,2).toUpperCase()
                     if (judgementString === "AV") {
-                        let value = parseInt(inputElement.value.substring(2))
+                        var value = parseInt(inputElement.value.substring(2))
                         if (value !== value) {
                             showElements("Error", true)
                         } else {
@@ -51,7 +51,7 @@
                     } else if (judgementString === "BV" && inputElement.value.length === 12) {
                         showElements("av"+decodeBV(inputElement.value), false)
                     } else {
-                        let value = parseInt(inputElement.value)
+                        var value = parseInt(inputElement.value)
                         if (value !== value) {
                             showElements("Error", true)
                         } else {
