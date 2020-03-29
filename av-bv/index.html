@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="480">
+        <meta http-equiv="x-dns-prefetch-control" content="on">
+        <meta name=viewport content="width=device-width,minimum-scale=1">
+        <title>AV/BV Converter for bilibili</title>
+        <meta name="description" content="A tool to help convert AV to / from BV codes, avoiding bilibili's ">
+        <meta name="author" content="Rachel030219">
+        <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+        <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+        <script src="tools.js"></script>
+    </head>
+
+    <body>
+        <div class="mdui-valign" style="height: 90vh;">
+            <div class="mdui-container">
+                <div class="mdui-row mdui-valign">
+                    <div class="mdui-textfield mdui-textfield-floating-label mdui-center mdui-col-sm-6 mdui-col-xs-12 mdui-col-md-4">
+                        <i class="mdui-icon material-icons">sync</i>
+                        <label class="mdui-textfield-label" id="convert-label">Input AV/BV code(like av10492):</label>
+                        <input class="mdui-textfield-input" id="convert-input"></input>
+                    </div>
+                </div>
+                <div class="mdui-row mdui-valign mdui-center" style="visibility: hidden;" id="output">
+                    <p class="mdui-col-xs-5 mdui-col-offset-xs-3" id="output-text" style="text-align: center;"></p>
+                    <button class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-col-xs-1" id="output-copy" onclick="copy()" disabled>Copy</button>
+                </div>
+            </div>
+        </div>
+        <div style="height: 5vh;">
+            <p style="text-align: center; color: #A3A3A3;">Developed by <a href="//me.stfw.info" style="color:#999999;">Rachel030219</a> with ❤</p>
+        </div>
+        <script>
+            var inputElement = document.getElementById("convert-input")
+            var outputLayout = document.getElementById("output")
+            var outputElement = document.getElementById("output-text")
+            var outputButton = document.getElementById("output-copy")
+            inputElement.oninput = function(){
+                if (inputElement.value.length > 0) {
+                    let judgementString = inputElement.value.substring(0,2).toUpperCase()
+                    if (judgementString === "AV") {
+                        let value = parseInt(inputElement.value.substring(2))
+                        if (value !== value) {
+                            showElements("Error", true)
+                        } else {
+                            showElements(encode2BV(value), false)
+                        }
+                    } else if (judgementString === "BV" && inputElement.value.length === 12) {
+                        showElements("av"+decodeBV(inputElement.value), false)
+                    } else {
+                        let value = parseInt(inputElement.value)
+                        if (value !== value) {
+                            showElements("Error", true)
+                        } else {
+                            showElements(encode2BV(value), false)
+                        }
+                    }
+                }
+            }
+            function showElements(text, disabled) {
+                outputElement.innerText = text
+                if (outputLayout.style.visibility === "hidden") {
+                    outputLayout.style.visibility = "visible"
+                }
+                if (disabled && !outputButton.hasAttribute("disabled")) {
+                    outputButton.setAttribute("disabled", true)
+                } else if (!disabled && outputButton.hasAttribute("disabled")) {
+                    outputButton.removeAttribute("disabled")
+                }
+            }
+            function copy(){
+                var copyElement = document.createElement("textarea");
+                document.body.appendChild(copyElement);
+                copyElement.value = outputElement.innerText;
+                copyElement.select();
+                document.execCommand("copy");
+                document.body.removeChild(copyElement);
+            }
+        </script>
+    </body>
+</html>
