@@ -78,6 +78,9 @@
                 copyElement.select();
                 document.execCommand("copy");
                 document.body.removeChild(copyElement);
+                mdui.snackbar({
+                    message: "Copied " + outputElement.innerText + " ."
+                })
             }
         </script>
     </body>
