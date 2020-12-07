@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="480">
+        <meta http-equiv="x-dns-prefetch-control" content="on">
+        <meta name=viewport content="width=device-width,minimum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>长理教学资源下载工具</title>
+        <meta name="description" content="长沙理工大学网络教学平台资源下载工具，用来下载一些没有「下载」按钮的教学资源">
+        <meta name="author" content="Rachel Tang">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css" integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js" integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="mdui-valign" style="height: 90vh;">
+            <div class="mdui-container">
+                <div class="mdui-row mdui-valign">
+                    <div class="mdui-textfield mdui-textfield-floating-label mdui-center mdui-col-sm-6 mdui-col-xs-12 mdui-col-md-4">
+                        <i class="mdui-icon material-icons">cloud_download</i>
+                        <label class="mdui-textfield-label" id="convert-label">在此处粘贴网址</label>
+                        <input class="mdui-textfield-input" id="convert-input" spellcheck="false"></input>
+                    </div>
+                </div>
+                <div class="mdui-row mdui-valign mdui-center" id="output">
+                    <button class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-col-xs-1 mdui-center" id="output-download" onclick="download()">下载</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var inputElement = document.getElementById("convert-input")
+            var outputLayout = document.getElementById("output")
+            var outputButton = document.getElementById("output-download")
+            function download(){
+                var pattern = /[/_]preview/i
+                var destFileURL = inputElement.value
+                while (pattern.test(destFileURL)) {
+                    destFileURL = destFileURL.replace(pattern, "")
+                }
+                document.location = destFileURL
+            }
+        </script>
+    </body>
+</html>
