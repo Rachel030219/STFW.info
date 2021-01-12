@@ -39,7 +39,7 @@
                 while (pattern.test(destFileURL)) {
                     destFileURL = destFileURL.replace(pattern, "")
                 }
-                document.location = destFileURL
+                window.open(destFileURL)
             }
         </script>
     </body>
